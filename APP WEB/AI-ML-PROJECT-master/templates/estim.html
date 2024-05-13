@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>Welcome to the Estimation Page</h1>
+    <p>Please enter your variables:</p>
+    <form action="{{ url_for('estimate') }}" method="post" id="estimation-form">
+        <label for="brand">Brand:</label><br>
+    <select id="brand" name="brand">
+        <option value="KIA">KIA</option>
+        <option value="Seat">Seat</option>
+        <option value="Citroen">Citroen</option>
+        <option value="Audi">Audi</option>
+        <option value="Skoda">Skoda</option>
+        <option value="Ford">Ford</option>
+        <option value="BMW">BMW</option>
+        <option value="Mazda">Mazda</option>
+        <option value="Hyundai">Hyundai</option>
+        <option value="Renault">Renault</option>
+        <option value="Peugeot">Peugeot</option>
+        <option value="Toyota">Toyota</option>
+        <option value="FIAT">FIAT</option>
+        <option value="Volvo">Volvo</option>
+        <option value="Dacia">Dacia</option>
+        <option value="Mercedes">Mercedes</option>
+        <option value="Opel">Opel</option>
+    </select><br><br>
+    <label for="modele">Model:</label><br>
+<input type="text" id="modele" name="modele"><br><br>
+    
+    <label for="year">Year of Production:</label><br>
+    <input type="number" id="year" name="year"><br><br>
+
+    <label for="engine_capacity">Engine Capacity:</label><br>
+    <input type="number" id="engine_capacity" name="engine_capacity"><br><br>
+
+    <label for="power_value">Power Value:</label><br>
+    <input type="number" id="power_value" name="power_value"><br><br>
+
+    <label for="mileage_value">Mileage Value:</label><br>
+    <input type="number" id="mileage_value" name="mileage_value"><br><br>
+
+    <label for="gearbox_type">Gearbox Type:</label><br>
+    <select id="gearbox_type" name="gearbox_type">
+        <option value="Manual">Manual</option>
+        <option value="Automatic">Automatic</option>
+    </select><br><br>
+
+    <label for="fuel_type">Fuel Type:</label><br>
+    <select id="fuel_type" name="fuel_type">
+        <option value="Diesel">Diesel</option>
+        <option value="Petrol">Petrol</option>
+        <option value="Plug-in Hybrid">Plug-in Hybrid</option>
+        <option value="Petrol+LPG">Petrol+LPG</option>
+        <option value="Electric">Electric</option>
+        <option value="Hybrid">Hybrid</option>
+        <option value="Benzyna+CNG">Benzyna+CNG</option>
+    </select><br><br>
+
+    <button type="submit">Estimate</button>
+</form>
+{% if predicted_price is not none %}
+        <p>Predicted Price: {{ predicted_price }}</p>
+    {% endif %}
+        
+</body>
+</html>
